@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Price Prediction</h1>
+        <form method="POST" action="/predict" class="mt-4">
+            <div class="form-group">
+                <label for="City">City:</label>
+                <input type="text" class="form-control" id="City" name="City" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <input type="text" class="form-control" id="type" name="type" required>
+            </div>
+            <div class="form-group">
+                <label for="condition">Condition:</label>
+                <input type="text" class="form-control" id="condition" name="condition" required>
+            </div>
+            <div class="form-group">
+                <label for="room_number">Number of Rooms:</label>
+               <input type="number" class="form-control" id="room_number" name="room_number" step="0.5" required>
+            </div>
+            <div class="form-group">
+                <label for="floor">Floor:</label>
+                <input type="number" class="form-control" id="floor" name="floor" required>
+            </div>
+            <div class="form-group">
+                <label for="Area">Area (sqm):</label>
+                <input type="number" class="form-control" id="Area" name="Area" step="0.5" required>
+            </div>
+            <div class="form-group">
+                <label for="entranceDate">Entrance Date:</label>
+                <select class="form-control" id="entranceDate" name="entranceDate" required>
+                    <option value="less_than_6_months">Less than 6 months</option>
+                    <option value="months_6_12">6-12 months</option>
+                    <option value="above_year">Above a year</option>
+                    <option value="flexible">Flexible</option>
+                    <option value="not_defined">Not defined</option>
+                </select>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="hasElevator" name="hasElevator" value="1">
+                <label class="form-check-label" for="hasElevator">Has Elevator</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="hasParking" name="hasParking" value="1">
+                <label class="form-check-label" for="hasParking">Has Parking</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="hasBars" name="hasBars" value="1">
+                <label class="form-check-label" for="hasBars">Has Bars</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="hasStorage" name="hasStorage" value="1">
+                <label class="form-check-label" for="hasStorage">Has Storage</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="hasAirCondition" name="hasAirCondition" value="1">
+                <label class="form-check-label" for="hasAirCondition">Has Air Condition</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="hasBalcony" name="hasBalcony" value="1">
+                <label class="form-check-label" for="hasBalcony">Has Balcony</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="hasMamad" name="hasMamad" value="1">
+                <label class="form-check-label" for="hasMamad">Has Mamad</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="handicapFriendly" name="handicapFriendly" value="1">
+                <label class="form-check-label" for="handicapFriendly">Handicap Friendly</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        {% if price %}
+        <div class="mt-4">
+            <h5>Predicted Price:</h5>
+            <p>{{ price }} ש"ח</p>
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
